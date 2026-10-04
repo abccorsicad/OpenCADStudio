@@ -62,7 +62,9 @@ delete the `.prev` file once nothing runs from it.
 - Wrapper regeneration for `annotate`/`tiles`/`diff` capture params (blocked:
   needs a live session + client `request_id` support on capture).
 - End-to-end proof of the startup lock (two concurrent `launch_if_none: true`
-  calls yield one GUI window) — needs a live GUI + fresh bridge.
-- Subagent clean-interaction retest (handshake announce + capabilities
-  round-trip + digest match) — needs a client restart after the 2026-10-04
-  rebuild; last attempt correctly reported bridge-gone-by-design.
+  calls yield one GUI window) — needs a controlled window-spawning test.
+- Subagent clean-interaction retest — DONE 2026-10-04: subagent announced
+  `2026.39 / 64dc2c3c3c24` from the `bridge` object, capabilities round-trip
+  succeeded, digest matched, no friction.
+- SEP-2549 follow-up (optional): shorter TTL for `resources/*` (dynamic,
+  e.g. 60s) while keeping 1h for the static `tools/list`.
